@@ -9,7 +9,7 @@ try {
     // Create User table
     $dbh->exec("CREATE TABLE IF NOT EXISTS User (
         UserID INTEGER PRIMARY KEY AUTOINCREMENT,
-        UserName TEXT NOT NULL,
+        UserName TEXT NOT NULL UNIQUE,
         FirstName TEXT NOT NULL,
         LastName TEXT NOT NULL
     )");

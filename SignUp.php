@@ -30,16 +30,16 @@
                 }
             ?>
             <div class="auth-form">
-            <form action="LogInUser.php" method="POST">
+            <form action="AddUser.php" method="POST">
             <h2>Sign Up</h2>
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required placeholder="Enter Your Username">
+                <input type="text" id="username" name="UserName" required placeholder="Enter Your Username">
                 <br>
                 <label for="firstname">First Name:</label>
-                <input type="text" id="firstname" name="firstname" required placeholder="Enter Your First Name">
+                <input type="text" id="firstname" name="FirstName" required placeholder="Enter Your First Name">
                 <br>
                 <label for="lastname">Last Name:</label>
-                <input type="text" id="lastname" name="lastname" required placeholder="Enter Your Last Name">
+                <input type="text" id="lastname" name="LastName" required placeholder="Enter Your Last Name">
                 <br>
                 <button type="submit">Sign Up</button>
             </form>

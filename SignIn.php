@@ -33,7 +33,7 @@
             <form action="LogInUser.php" method="POST">
             <h2>Sign In</h2>
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required placeholder="Enter Your Username">
+                <input type="text" id="username" name="UserName" required placeholder="Enter Your Username">
                 <br>
                 <button type="submit">Sign In</button>
             </form>

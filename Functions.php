@@ -5,7 +5,7 @@
 function connectToDatabase()
 {
 	// connect to our SQLITE database 
-	$dbh = new PDO("sqlite:./database/Blog.db");
+	$dbh = new PDO("sqlite:database/Blog.db");
 	
 	// if you had a MYSQL server you could use this instead:
 	// $dbh = new PDO("mysql:host=localhost;dbname=myDatabase", "username", "password");
@@ -16,6 +16,7 @@ function connectToDatabase()
 	//Turn OFF emulated prepared statements.
 	$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	
+    // echo "Database connected successfully.";
 	// return the database handle.
 	return $dbh;
 }
@@ -81,5 +82,5 @@ function makeOutputSafe($unsafeString)
 	$safeOutput = htmlspecialchars($unsafeString, ENT_QUOTES,"UTF-8");
 	return $safeOutput;
 }	
-
 ?>
+
