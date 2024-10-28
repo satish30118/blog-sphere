@@ -29,7 +29,7 @@ try {
         UserID INTEGER NOT NULL,
         HeadlineID INTEGER NOT NULL,
         DateTime DATETIME NOT NULL,
-        Post TEXT NOT NULL,
+        BlogPost TEXT NOT NULL,
         FOREIGN KEY(UserID) REFERENCES User(UserID),
         FOREIGN KEY(HeadlineID) REFERENCES Headline(HeadlineID)
     )");

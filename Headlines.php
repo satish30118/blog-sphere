@@ -77,7 +77,9 @@ try {
                         <label for="headline">Headline:</label>
                         <input type="text" id="headline" name="headline" required>
                         <br>
+                        <div class="form-btn">
                         <button type="submit">Add Headline</button>
+                        </div>
                     </form>
                 </div>
             <?php else: ?>

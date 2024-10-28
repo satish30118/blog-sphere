@@ -63,10 +63,10 @@ body {
 #content .home-para {
     font-size: 28px;
     color: #327934;
-    margin:10px auto;
+    margin: 10px auto;
     text-align: center;
     position: absolute;
-    top: 5vh;
+    top: 10vh;
     left: 10%;
 
 }
@@ -80,19 +80,20 @@ body {
 
 
 /* Content SignIn and SignUp Page */
-.auth-form{
+.auth-form {
     height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    form{
+
+    form {
         width: 400px;
         padding: 30px;
-        border:2px solid  #4CAF50;
+        border: 2px solid #4CAF50;
         display: flex;
         flex-direction: column;
 
-        input{
+        input {
             width: 100%;
             padding: 10px;
             outline: none;
@@ -100,11 +101,11 @@ body {
             margin: 10px 0;
         }
 
-        input:focus{
+        input:focus {
             border: 2px solid #4CAF50;
         }
 
-        button{
+        button {
             width: 100%;
             cursor: pointer;
             padding: 10px;
@@ -114,11 +115,13 @@ body {
             color: white;
             font-size: 20px;
         }
-        button:hover{
+
+        button:hover {
             background-color: #147317;
         }
     }
-    h2{
+
+    h2 {
         text-align: center;
         margin-bottom: 20px;
     }
@@ -148,7 +151,8 @@ body {
     text-align: center;
 }
 
-.headlines-table th, .headlines-table td {
+.headlines-table th,
+.headlines-table td {
     border: 1px solid #ddd;
     padding: 8px;
 }
@@ -177,7 +181,7 @@ body {
 }
 
 /* Styling for Form to Add New Headline */
-.new-headline{
+.new-headline {
     form {
         width: 100%;
         max-width: 700px;
@@ -186,16 +190,17 @@ body {
         border: 2px solid #327934;
         margin-top: 20px;
     }
-    h3{
+
+    h3 {
         text-align: center;
         margin-bottom: 30px;
     }
-    
+
     form label {
         width: 100%;
         font-weight: bold;
     }
-    
+
     form input[type="text"] {
         padding: 10px;
         width: 100%;
@@ -204,7 +209,22 @@ body {
         border-radius: 4px;
         outline: #45a049;
     }
+
+    textarea {
+        padding: 10px;
+        width: 100%;
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        outline: #45a049;
+    }
+
+    .form-btn {
+        text-align: right;
+    }
+
     form button {
+        width: 50%;
         padding: 10px 20px;
         background-color: #4CAF50;
         color: white;
@@ -212,11 +232,11 @@ body {
         border-radius: 4px;
         cursor: pointer;
     }
-    
+
     form button:hover {
         background-color: #45a049;
     }
-    
+
 }
 
 /* Cookie message styling */
@@ -227,6 +247,7 @@ body {
 }
 
 
-.center{
+.center {
     text-align: center;
+    margin-bottom: 10px;
 }

@@ -26,7 +26,7 @@
         <div class="row" id="content">
             <?php 
                 if ($cookieMessage != "") {
-                    echo "<p>$cookieMessage</p>";
+                    echo "<p class='center cookie-message'>$cookieMessage</p>";
                 }
             ?>
             <div class="auth-form">

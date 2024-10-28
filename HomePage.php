@@ -34,7 +34,7 @@
         <div class="row" id="content">
             <?php 
                 if ($cookieMessage != "") {
-                    echo "<p>$cookieMessage</p>";
+                    echo "<p class='center cookie-message'>$cookieMessage</p>";
                 }
             ?>
             <p class="home-para">Welcome to the My blog! Here, users can share their thoughts and explore interesting posts.</p>
