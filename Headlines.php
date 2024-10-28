@@ -3,17 +3,31 @@ include('Functions.php');
 $cookieMessage = getCookieMessage();
 $cookieUser = getCookieUser();
 
+// Get the current page number from the URL, default to 1 if not set
+$currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$limit = 5; // Limit to 5 headlines per page
+$offset = ($currentPage - 1) * $limit;
+
 try {
     // Connect to the database
     $dbh = connectToDatabase();
 
-    // Prepare and execute the SQL statement to get all headlines with user info
+    // Count the total number of headlines for pagination
+    $countStatement = $dbh->prepare('SELECT COUNT(HeadlineID) FROM Headline');
+    $countStatement->execute();
+    $totalHeadlines = $countStatement->fetchColumn();
+    $totalPages = ceil($totalHeadlines / $limit);
+
+    // Prepare and execute SQL to get the current page's headlines with limit and offset
     $statement = $dbh->prepare('
-            SELECT User.UserName, Headline.Headline, Headline.DateTime
-            FROM Headline
-            INNER JOIN User ON Headline.UserID = User.UserID
-            ORDER BY Headline.HeadlineID DESC
-        ');
+        SELECT User.UserName, Headline.Headline, Headline.DateTime
+        FROM Headline
+        INNER JOIN User ON Headline.UserID = User.UserID
+        ORDER BY Headline.HeadlineID DESC
+        LIMIT ? OFFSET ?
+    ');
+    $statement->bindValue(1, $limit, PDO::PARAM_INT);
+    $statement->bindValue(2, $offset, PDO::PARAM_INT);
     $statement->execute();
     $headlines = $statement->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -22,12 +36,10 @@ try {
 ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Headlines - CSE4IFU Blog</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <div class="container">
         <div class="row" id="header">
@@ -47,7 +59,6 @@ try {
                 echo '<a> Welcome ' . htmlspecialchars($cookieUser) . '</a>';
             }
             ?>
-
         </div>
 
         <div class="row" id="content">
@@ -73,7 +84,6 @@ try {
                 <div class="new-headline">
                     <form action="AddHeadline.php" method="POST">
                         <h3>Create a New Headline</h3>
-                        <?php echo '<h3 class="center">' . $cookieMessage . ' </h3>' ?>
                         <label for="headline">Headline:</label>
                         <input type="text" id="headline" name="headline" required>
                         <br>
@@ -85,12 +95,21 @@ try {
             <?php else: ?>
                 <p class="center">You must be logged in to create a headline.</p>
             <?php endif; ?>
+
+            <!-- Pagination Links -->
+            <div class="pagination">
+                <?php if ($currentPage > 1): ?>
+                    <a href="Headlines.php?page=<?php echo $currentPage - 1; ?>">Previous</a>
+                <?php endif; ?>
+                <?php if ($currentPage < $totalPages): ?>
+                    <a href="Headlines.php?page=<?php echo $currentPage + 1; ?>">Next</a>
+                <?php endif; ?>
+            </div>
         </div>
 
         <div class="row" id="footer">
-            <h4 >Your Full Name – Your Student Number – CSE4IFU Sem 2, 2024</h4>
+            <h4>Your Full Name – Your Student Number – CSE4IFU Sem 2, 2024</h4>
         </div>
     </div>
 </body>
-
 </html>

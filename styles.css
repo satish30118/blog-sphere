@@ -1,4 +1,16 @@
-/* General Reset */
+/* Cookie message styling */
+.cookie-message {
+    color: #d9534f;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.center{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -239,15 +251,25 @@ body {
 
 }
 
-/* Cookie message styling */
-.cookie-message {
-    color: #d9534f;
+
+/*ABout section Styling */
+.about-section h2,
+.about-section h3 {
     font-weight: bold;
-    margin-top: 10px;
 }
 
+.about-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
 
-.center {
-    text-align: center;
+.about-section h3 {
+    font-size: 20px;
+    margin-top: 25px;
     margin-bottom: 10px;
+}
+
+.about-section p {
+    margin-left: 20px;
+    margin-right: 20px;
 }
