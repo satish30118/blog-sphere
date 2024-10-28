@@ -71,9 +71,9 @@ try {
             <?php if ($cookieUser != ""): ?>
                 <!-- Form to create a new headline if user is logged in -->
                 <div class="new-headline">
-
                     <form action="AddHeadline.php" method="POST">
                         <h3>Create a New Headline</h3>
+                        <?php echo '<h3 class="center">' . $cookieMessage . ' </h3>' ?>
                         <label for="headline">Headline:</label>
                         <input type="text" id="headline" name="headline" required>
                         <br>
@@ -81,12 +81,12 @@ try {
                     </form>
                 </div>
             <?php else: ?>
-                <p>You must be logged in to create a headline.</p>
+                <p class="center">You must be logged in to create a headline.</p>
             <?php endif; ?>
         </div>
 
         <div class="row" id="footer">
-            <h4>Your Full Name – Your Student Number – CSE4IFU Sem 2, 2024</h4>
+            <h4 >Your Full Name – Your Student Number – CSE4IFU Sem 2, 2024</h4>
         </div>
     </div>
 </body>

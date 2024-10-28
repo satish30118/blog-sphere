@@ -60,7 +60,7 @@ body {
     position: relative;
 }
 
-#content p {
+#content .home-para {
     font-size: 28px;
     color: #327934;
     margin:10px auto;
@@ -224,4 +224,9 @@ body {
     color: #d9534f;
     font-weight: bold;
     margin-top: 10px;
+}
+
+
+.center{
+    text-align: center;
 }
